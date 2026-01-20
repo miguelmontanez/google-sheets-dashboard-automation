@@ -1,0 +1,74 @@
+{
+  "project": "Google Sheets Dashboard Scripts",
+  "version": "1.0.0",
+  "description": "Automated Google Apps Script for dashboard onboarding, offboarding, and error handling",
+  "modules": {
+    "onboarding": {
+      "description": "Handles adding new sheets to the dashboard",
+      "functions": [
+        "onboardSheet()",
+        "validateSheetStructure()",
+        "getOrCreateConfigSheet()",
+        "registerSheetConfiguration()",
+        "initializeErrorTracking()"
+      ]
+    },
+    "offboarding": {
+      "description": "Handles removing sheets from the dashboard",
+      "functions": [
+        "offboardSheet()",
+        "findSheetInConfig()",
+        "archiveSheetErrorLogs()",
+        "removeSheetErrorLogs()",
+        "validateOffboarding()"
+      ]
+    },
+    "errorHandling": {
+      "description": "Monitors KPI thresholds and creates error records",
+      "functions": [
+        "checkAllSheetsForErrors()",
+        "checkSheetForErrors()",
+        "calculateErrorSeverity()",
+        "logErrorToSheet()",
+        "onboardKPITracking()",
+        "offboardKPITracking()"
+      ]
+    },
+    "utilities": {
+      "description": "Helper functions for configuration and operations",
+      "functions": [
+        "getAllActiveSheets()",
+        "getSheetErrorLogs()",
+        "getErrorSummary()",
+        "clearErrorLogs()",
+        "updateLastSyncDate()",
+        "sendErrorNotification()",
+        "createErrorCheckTrigger()",
+        "exportErrorLogsAsCSV()"
+      ]
+    }
+  },
+  "configuration": {
+    "dashboardConfigSheet": "DashboardConfig",
+    "errorLogsSheet": "ErrorLogs",
+    "errorArchiveSheet": "ErrorLogs_Archive"
+  },
+  "kpiThresholds": {
+    "example_kpi_1": 75,
+    "example_kpi_2": 80,
+    "example_kpi_3": 85
+  },
+  "severityLevels": {
+    "CRITICAL": "Value is 50% or more below threshold",
+    "HIGH": "Value is 30-50% below threshold",
+    "MEDIUM": "Value is 15-30% below threshold",
+    "LOW": "Value is less than 15% below threshold"
+  },
+  "triggers": {
+    "errorCheck": {
+      "function": "checkAllSheetsForErrors",
+      "frequency": "Every 30 minutes",
+      "setup": "Call createErrorCheckTrigger(30)"
+    }
+  }
+}
