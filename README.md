@@ -227,36 +227,36 @@ sendErrorNotification("admin@company.com", summary)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Reporting Dashboard                       │
-│                                                              │
+│                    Reporting Dashboard                      │
+│                                                             │
 │  ┌────────────────────────────────────────────────────────┐ │
-│  │          DashboardConfig Sheet                          │ │
+│  │          DashboardConfig Sheet                         │ │
 │  │  (Stores sheet URLs, KPIs, thresholds, status)         │ │
 │  └────────────────────────────────────────────────────────┘ │
-│           ↑                              ↓                    │
-│           │                              │                    │
+│           ↑                              ↓                  │
+│           │                              │                  │
 │    onboardSheet()              checkAllSheetsForErrors()    │
-│    offboardSheet()                       │                    │
-│           │                              ↓                    │
-│           │  ┌────────────────────────────────────────────┐  │
-│           │  │      Monitored Google Sheets               │  │
-│           │  │  (External sheets with KPI data)           │  │
-│           │  └────────────────────────────────────────────┘  │
-│           │                              ↓                    │
-│           │              Compare KPI values vs thresholds     │
-│           │                              ↓                    │
-│           │  ┌────────────────────────────────────────────┐  │
-│           └→ │           ErrorLogs Sheet                   │  │
-│              │  (New rows created when errors occur)       │  │
-│              │  (Color-coded by severity)                  │  │
-│              └────────────────────────────────────────────┘  │
-│                              ↓                                │
-│              ┌────────────────────────────────┐               │
-│              │  Send Email Notifications       │               │
-│              │  Export to CSV/Analysis        │               │
-│              │  Archive to ErrorLogs_Archive  │               │
-│              └────────────────────────────────┘               │
-│                                                              │
+│    offboardSheet()                       │                  │
+│           │                              ↓                  │
+│           │  ┌────────────────────────────────────────────┐ │
+│           │  │      Monitored Google Sheets               │ │
+│           │  │  (External sheets with KPI data)           │ │
+│           │  └────────────────────────────────────────────┘ │
+│           │                              ↓                  │
+│           │              Compare KPI values vs thresholds   │
+│           │                              ↓                  │
+│           │  ┌────────────────────────────────────────────┐ │
+│           └→ │           ErrorLogs Sheet                  │ │
+│              │  (New rows created when errors occur)      │ │
+│              │  (Color-coded by severity)                 │ │
+│              └────────────────────────────────────────────┘ │
+│                              ↓                              │
+│              ┌────────────────────────────────┐             │
+│              │  Send Email Notifications      │             │
+│              │  Export to CSV/Analysis        │             │
+│              │  Archive to ErrorLogs_Archive  │             │
+│              └────────────────────────────────┘             │
+│                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
